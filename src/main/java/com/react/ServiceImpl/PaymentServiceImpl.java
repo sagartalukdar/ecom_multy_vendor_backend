@@ -116,7 +116,8 @@ public class PaymentServiceImpl implements PaymentService{
 			notify.put("email", true);
 			paymentLinkRequest.put("notify", notify);
 			
-			paymentLinkRequest.put("callback_url", "http://localhost:3000/payment-success/"+orderId);
+			// paymentLinkRequest.put("callback_url", "http://localhost:3000/payment-success/"+orderId);
+			paymentLinkRequest.put("callback_url", "https://ecom-multy-vendor.vercel.app/payment-success/"+orderId);
 			paymentLinkRequest.put("callback_method", "get");
 			
 			PaymentLink paymentLink=razorpay.paymentLink.create(paymentLinkRequest);
@@ -137,7 +138,8 @@ public class PaymentServiceImpl implements PaymentService{
 		SessionCreateParams params=SessionCreateParams.builder()
 				.addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
 				.setMode(SessionCreateParams.Mode.PAYMENT)
-				.setSuccessUrl("http://localhost:3000/payment-success/"+orderId)
+				// .setSuccessUrl("http://localhost:3000/payment-success/"+orderId)
+			        .setSuccessUrl("https://ecom-multy-vendor.vercel.app/payment-success/"+orderId)
 				.setCancelUrl("http://localhost:3000/payment-cancel")
 				.addLineItem(SessionCreateParams.LineItem.builder().setQuantity(1L)
 						.setPriceData(SessionCreateParams.LineItem.PriceData.builder().setCurrency("usd").setUnitAmount(amount*100)
