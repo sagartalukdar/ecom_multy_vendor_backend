@@ -41,7 +41,7 @@ public class AppConfig {
 			@Override
 			public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
 				CorsConfiguration ccf=new CorsConfiguration();
-				ccf.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+				ccf.setAllowedOrigins(Arrays.asList("http://localhost:3000","https://ecom-multy-vendor.vercel.app")); 
 				ccf.setAllowedMethods(Collections.singletonList("*"));
 				ccf.setAllowedHeaders(Collections.singletonList("*"));
 				ccf.setAllowCredentials(true);
